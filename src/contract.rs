@@ -1,13 +1,14 @@
-use std::collections::Bound;
+
 use std::ops::Add;
 #[cfg(not(feature = "library"))]
 use cosmwasm_std::entry_point;
 use cosmwasm_std::{Binary, Deps, DepsMut, Env, MessageInfo, Order, Response, StdResult};
 use cw2::set_contract_version;
 use cosmwasm_std::to_binary;
+use cw_storage_plus::Bound;
 use crate::error::ContractError;
-use crate::msg::{CountResponse, EntryResponse, ExecuteMsg, InstantiateMsg, ListResponse, QueryMsg};
-use crate::state::{Config, CONFIG, Entry, ENTRY_SEQ, LIST, Priority, State, STATE, Status};
+use crate::msg::{EntryResponse, ExecuteMsg, InstantiateMsg, ListResponse, QueryMsg};
+use crate::state::{Config, CONFIG, Entry, ENTRY_SEQ, LIST, Priority, Status};
 
 
 // version info for migration info
